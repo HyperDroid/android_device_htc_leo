@@ -1,11 +1,11 @@
 ui_print("Welcome to HyperDroid... built by @sarcastillo/pongster on xda-devs - http://androidmeda.com");
 show_progress(0.500000, 0);
 ui_print("Formatting Boot...");
-format("MTD", "boot");
+format("yaffs2", "MTD", "boot");
 ui_print("Formatting System...");
-format("MTD", "system");
-mount("MTD", "boot", "/boot");
-mount("MTD", "system", "/system");
+format("yaffs2", "MTD", "system");
+mount("yaffs2", "MTD", "boot", "/boot");
+mount("yaffs2", "MTD", "system", "/system");
 show_progress(0.500000, 40);
 ui_print("Copying files to system...");
 package_extract_dir("system", "/system");

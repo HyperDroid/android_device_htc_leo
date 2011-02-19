@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/init.leo.rc:root/init.leo.rc \
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240 \
+    ro.sf.lcd_density=200 \
     rild.libpath=/system/lib/libhtc_ril.so \
     ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.ecc.HTC-WWE=999 \
@@ -64,7 +64,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=2 \
     wifi.interface=eth0 \
     wifi.supplicant_scan_interval=60
-    ro.modversion=HyperDroid-GBX
 
 # Default network type.
 # 0 => WCDMA preferred.
@@ -160,8 +159,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/leo/modules/cifs.ko:system/lib/modules/cifs.ko \
-    device/htc/leo/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
-    device/htc/leo/modules/nls_utf8.ko:system/lib/modules/nls_utf8.ko \
     device/htc/leo/modules/fuse.ko:system/lib/modules/fuse.ko \
     device/htc/leo/modules/tun.ko:system/lib/modules/tun.ko
 
@@ -169,8 +166,11 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/zImage:boot/zImage \
     device/htc/leo/initrd.gz:boot/initrd.gz \
     device/htc/leo/updater-script:updater-script \
+    device/htc/leo/build.prop:system/build.prop \
     vendor/htc/leo/proprietary/lights.qsd8k.so:system/lib/hw/lights.qsd8k.so \
-    vendor/hyperdroid/proprietary/Zeam.apk:system/app/Zeam.apk
+    vendor/htc/leo/proprietary/gps.leo.so:system/lib/hw/gps.leo.so \
+    vendor/hyperdroid/proprietary/Zeam.apk:system/app/Zeam.apk \
+    vendor/hyperdroid/proprietary/DSPManager.apk:system/app/DSPManager.apk
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/htc/leo/kernel
@@ -183,3 +183,19 @@ PRODUCT_COPY_FILES += \
 
 # media profiles and capabilities spec
 $(call inherit-product, device/htc/leo/media_a1026.mk)
+
+#
+# Set ro.modversion
+#
+ifdef RELEASE
+    PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=HyperDroid-v1.0.0
+else
+ifdef RC
+   PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=HyperDroid-v1.0.0-RC1
+else
+    PRODUCT_PROPERTY_OVERRIDES += \
+    	ro.modversion=HyperDroid-SNAPHSOT-$(shell date +%m%d%Y)
+endif
+endif
