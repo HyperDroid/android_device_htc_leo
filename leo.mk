@@ -125,12 +125,12 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     sensors.leo \
-    lights.leo \
     librs_jni \
     gralloc.qsd8k \
     copybit.qsd8k \
-    leo-reference-ril \
-    gps.leo
+    leo-reference-ril
+    #lights.leo \
+    #gps.leo
 
 
 
