@@ -66,13 +66,16 @@ BOARD_VENDOR_USE_AKMD := akm8973
 BOARD_EGL_CFG := device/htc/leo/egl.cfg
 
 BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
 
 BOARD_USE_OPENSSL_ENGINE := true
 
 BOARD_USE_FROYO_LIBCAMERA := true
 BOARD_USE_REVERSE_FFC := true
 
+# to enable the GPS HAL
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := leo
+# AMSS version to use for GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 
 # Use RGB565 surfaces until userspace drivers are upgraded
