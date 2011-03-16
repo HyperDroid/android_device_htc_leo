@@ -34,7 +34,7 @@ PRODUCT_DEVICE := leo
 PRODUCT_BRAND := htc_wwe
 PRODUCT_MODEL := HTC HD2
 PRODUCT_MANUFACTURER := HTC
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_ID=FRF91 BUILD_DISPLAY_ID=GRH78C PRODUCT_NAME=htc_bravo BUILD_FINGERPRINT=htc_wwe/htc_bravo/bravo/bravo:2.2/FRF91/226611:user/release-keys TARGET_BUILD_TYPE=userdebug BUILD_VERSION_TAGS=release-keys PRIVATE_BUILD_DESC="2.10.405.2 CL226611 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_ID=FRF91 BUILD_DISPLAY_ID=GRI56 PRODUCT_NAME=htc_bravo BUILD_FINGERPRINT=htc_wwe/htc_bravo/bravo/bravo:2.2/FRF91/226611:user/release-keys TARGET_BUILD_TYPE=user BUILD_VERSION_TAGS=release-keys PRIVATE_BUILD_DESC="2.10.405.2 CL226611 release-keys"
 
 # Extra Leo (CDMA/GSM) overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/hyperdroid/overlay/leo
@@ -160,6 +160,7 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/leo/modules/cifs.ko:system/lib/modules/cifs.ko \
     device/htc/leo/modules/fuse.ko:system/lib/modules/fuse.ko \
+    device/htc/leo/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
     device/htc/leo/modules/tun.ko:system/lib/modules/tun.ko
 
 PRODUCT_COPY_FILES += \
@@ -189,11 +190,11 @@ $(call inherit-product, device/htc/leo/media_a1026.mk)
 #
 ifdef RELEASE
     PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=HyperDroid-v1.0.0
+	ro.modversion=HyperDroid-v9.0.0
 else
 ifdef RC
    PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=HyperDroid-v1.0.0-RC1
+	ro.modversion=HyperDroid-v9.0.0-RC1
 else
     PRODUCT_PROPERTY_OVERRIDES += \
     	ro.modversion=HyperDroid-SNAPHSOT-$(shell date +%m%d%Y)
