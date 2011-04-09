@@ -160,8 +160,8 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/leo/modules/cifs.ko:system/lib/modules/cifs.ko \
     device/htc/leo/modules/fuse.ko:system/lib/modules/fuse.ko \
-    device/htc/leo/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
-    device/htc/leo/modules/tun.ko:system/lib/modules/tun.ko
+    device/htc/leo/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko
+    #device/htc/leo/modules/tun.ko:system/lib/modules/tun.ko
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/zImage:boot/zImage \
@@ -170,7 +170,7 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/build.prop:system/build.prop \
     vendor/htc/leo/proprietary/lights.qsd8k.so:system/lib/hw/lights.qsd8k.so \
     vendor/htc/leo/proprietary/gps.leo.so:system/lib/hw/gps.leo.so \
-    vendor/hyperdroid/proprietary/Zeam.apk:system/app/Zeam.apk \
+    vendor/hyperdroid/proprietary/LauncherPro.apk:system/app/LauncherPro.apk \
     vendor/hyperdroid/proprietary/DSPManager.apk:system/app/DSPManager.apk
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -190,11 +190,11 @@ $(call inherit-product, device/htc/leo/media_a1026.mk)
 #
 ifdef RELEASE
     PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=HyperDroid-v9.0.0
+	ro.modversion=HyperDroid-v12.0.0
 else
 ifdef RC
    PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=HyperDroid-v9.0.0-RC1
+	ro.modversion=HyperDroid-v12.0.0-RC1
 else
     PRODUCT_PROPERTY_OVERRIDES += \
     	ro.modversion=HyperDroid-SNAPHSOT-$(shell date +%m%d%Y)
